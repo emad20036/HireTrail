@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-7p$35*10gz2&5rmz1ny$7)#7!urc@1przgjw1kh#i!t&6e%(s2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.2.23']
+ALLOWED_HOSTS = ['hiretrail.azurewebsites.net']
 
 
 
