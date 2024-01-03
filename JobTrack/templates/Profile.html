@@ -1,0 +1,62 @@
+{% extends "dashboard.html" %}
+
+{% load static%}
+{% block content %}
+<style>
+
+  @media screen and (max-width: 768px) {
+    .content{
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 15px;
+      margin-left: 50px;
+    }
+</style>
+<!-- Profile Page Content -->
+<div class="content">
+
+<div id="profile" class="profile-container">
+  <h2 class="profile-title">Profile</h2>
+  <form method="post" action={% url "profile"%}>
+    {% csrf_token %}    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="firstName" class="profile-label">First Name:</label>
+          <input value={{person.fname}} name='fname' type="text" class="form-control profile-input" id="firstName" placeholder={{person.fname}}>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="lastName" class="profile-label">Last Name:</label>
+          <input value={{person.lname}} name='lname' type="text" class="form-control profile-input" id="lastName" placeholder={{person.lname}}>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="profile-label">Email:</label>
+      <input value={{person.email}} name='email' type="email" class="form-control profile-input" id="email" placeholder={{person.email}}>
+    </div>
+    <div class="form-group">
+      <label for="password" class="profile-label">Username:</label>
+      <input value={{person.username}} name='username' type="text" class="form-control profile-input" id="password" placeholder={{person.username}}>
+    </div>
+    <button type="submit" class="btn update-profile-btn">Update Profile</button>
+  </form>
+  {% if error_message %}
+  <div class="alert alert-danger alert-dismissible fade show">
+    <strong>Error!</strong> A problem has occurred while trying to update your profile. Please try again
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+{% endif %}
+{% if success_message %}
+  <div class="alert alert-success alert-dismissible fade show">
+    <strong>Success!</strong> Your profile has been updated successfully.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+
+</div>
+</div>
+
+{% endblock%}

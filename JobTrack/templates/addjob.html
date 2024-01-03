@@ -1,0 +1,58 @@
+{% extends "dashboard.html" %}
+
+{% load static%}
+{% block content %}
+ <!-- Add Job Page Content -->
+ <style>
+  .form-group {
+    display: inline-block;
+    margin-right: 15px; /* Adjust the spacing between form fields */
+  }
+  @media screen and (max-width: 768px) {
+    .content{
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 15px;
+      margin-left: 50px;
+    }
+</style>
+<div class="content">
+<div id="addJob" class="add-job-form">
+ 
+  <h2 style="color: #9199FB;">Add Job</h2>
+  <form method="post" action="{% url 'addjob' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input name= 'position' type="text" class="form-control" id="position" placeholder="Enter position">
+    </div>
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input name= 'company' type="text" class="form-control" id="company" placeholder="Enter company">
+    </div>
+    <div class="form-group">
+      <label for="jobType">Job Type:</label>
+      <select name= 'job_type' class="form-control" id="jobType">
+        <option value="full-time">Full Time</option>
+        <option value="part-time">Part Time</option>
+        <option value="internship">Internship</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select name='status' class="form-control" id="status">
+        <option value="pending">Pending</option>
+        <option value="Interview">Interview</option>
+        <option value="declined">Declined</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="jobLocation">Job Location:</label>
+      <input name='job_location' type="text" class="form-control" id="jobLocation" placeholder="Enter job location">
+    </div>
+    <button type="submit" class="btn add-job-btn">Add Job</button>
+  </form>
+</div>
+</div>
+
+{% endblock%}

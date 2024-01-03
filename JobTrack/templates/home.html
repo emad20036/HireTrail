@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}main{% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">HireTrail</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-content">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 order-md-1 order-2 content-details">
+            <h1 class="app-title">Job Tracking App</h1>
+            <p class="app-description">A powerful platform to streamline your job tracking process and improve efficiency.</p>
+            <div class="button_wrapper"><a href={% url "register"%} class="btn btn-primary">Register</a>
+                <a href={% url "login"%} class="btn btn-secondary">Login</a></div>
+        </div>
+        <div class="col-md-6 col-sm-12 order-md-2 order-1">
+            <img src="{% static 'img/job.png' %}" alt="HireTrail Logo" class="logo-container img-fluid">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends "dashboard.html" %}
+
+{% load static%}
+
+{% block title%}All Jobs{% endblock %}
+
+
+{% block style%}
+body {
+  background-color: #1E1E1E;
+  color: #EBEFFF;
+  padding-top: 50px;
+}
+
+.navbar {
+  background-color: #1E1E1E;
+}
+
+.navbar-brand {
+  color: #EBEFFF;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-nav .nav-link {
+  color: #9199FB;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #EBEFFF;
+}
+
+.content {
+  margin: 20px;
+  margin-left: 80px;
+
+}
+
+/* All Jobs Page Styles */
+.job-card {
+  background-color: #1E1E1E;
+  color: #EBEFFF;
+  border: 1px solid #9199FB;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-card h4 {
+  color: #9199FB;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  margin: 5px 0;
+}
+
+.job-buttons {
+  margin-top: 10px;
+}
+
+.delete-btn,
+.edit-btn {
+  background-color: #9199FB;
+  color: #1E1E1E;
+  margin-right: 5px;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+  background-color: #EBEFFF;
+  color: #1E1E1E;
+}
+@media screen and (max-width: 768px) {
+  .content{
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 15px;
+    margin-left: 50px;
+  }
+
+{% endblock %}
+{% block content %}
+
+<div class="content">
+
+  <!-- All Jobs Page Content -->
+  <h2 style="text-align: center; color: #9199FB;">All Jobs</h2>
+  {% if job|length == 0 %}
+    <p>No jobs available.</p>
+  {% else %}
+    <!-- Job Cards -->
+    <div class="row">
+      <!-- Card 1 -->
+      {% for num in job %}
+        <div class="col-md-4">
+          <div class="job-card">
+            <h4>{{ num.position }}</h4>
+            <p><strong>Company:</strong> {{ num.company }}</p>
+            <p><strong>Status:</strong> {{ num.status }}</p>
+            <p><strong>Job Type:</strong> {{ num.job_type }}</p>
+            <p><strong>Location:</strong> {{ num.job_location }}</p>
+            <div class="job-buttons">
+              <a href="{% url 'delete' num.id %}"><button class="btn delete-btn"><i class="fas fa-trash"></i> Delete</button></a>
+              <button class="btn edit-btn" data-toggle="modal" data-target="#exampleModalCenter{{ num.id }}"><i class="fas fa-edit"></i> Edit</button>
+              <div class="modal fade" id="exampleModalCenter{{ num.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content" style="background-color: #1E1E1E; color: #EBEFFF;">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Update Job</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #EBEFFF;">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="{% url 'update' num.id %}">
+                        {% csrf_token %}
+              
+                        <div class="form-group">
+                          <label for="position" style="color: #9199FB;">Position:</label>
+                          <input type="text" class="form-control" id="position" name="position" value="{{ num.position }}">
+                        </div>
+                        <div class="form-group">
+                          <label for="company" style="color: #9199FB;">Company:</label>
+                          <input type="text" class="form-control" id="company" name="company" value="{{ num.company }}">
+                        </div>
+                        <div class="form-group">
+                          <label for="jobType" style="color: #9199FB;">Job Type:</label>
+                          <select class="custom-select" id="jobType" name="job_type">
+                            <option value="full-time" {% if num.job_type == 'full-time' %}selected{% endif %}>Full-time</option>
+                            <option value="part-time" {% if num.job_type == 'part-time' %}selected{% endif %}>Part-time</option>
+                            <option value="internship" {% if num.job_type == 'internship' %}selected{% endif %}>Internship</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="status" style="color: #9199FB;">Status:</label>
+                          <select class="custom-select" id="status" name="status">
+                            <option value="pending" {% if num.status == 'pending' %}selected{% endif %}>Pending</option>
+                            <option value="interview" {% if num.status == 'interview' %}selected{% endif %}>Interview</option>
+                            <option value="declined" {% if num.status == 'declined' %}selected{% endif %}>Declined</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="location" style="color: #9199FB;">Location:</label>
+                          <input type="text" class="form-control" id="location" name="location" value="{{ num.job_location }}">
+                        </div>
+                      
+                    </div>
+                    <div class="modal-footer" style="background-color: #1E1E1E;">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #9199FB; color: #1E1E1E;">Cancel</button>
+                      <button type="submit" class="btn btn-primary" style="background-color: #EBEFFF; color: #1E1E1E;">Save changes</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      {% endfor %} 
+    </div>
+  {% endif %}
+
+  
+</div>
+
+
+  
+{% endblock%}

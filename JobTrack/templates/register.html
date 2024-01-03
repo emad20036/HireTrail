@@ -1,0 +1,58 @@
+{% extends "base.html"%}
+{% block content %}
+    
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">HireTrail</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container register-container">
+    <div class="col-md-6 offset-md-3">
+      <div class="register-form">
+        <h2 style="color: #9199FB;">Register</h2>
+        <form method="post" action={% url "register"%}>
+          {% csrf_token %}
+          <label for="{{ form.username.id_for_label }}">Username </label>
+          {{ form.username}}
+
+          <label for="{{ form.fname.id_for_label }}">First Name </label>
+          {{ form.first_name }}
+          <label for="{{ form.lname.id_for_label }}">Last Name </label>
+          {{ form.last_name }}
+          <label for="{{ form.email.id_for_label }}">Email Address</label>
+          {{ form.email }}
+          {{ form.password1.label_tag }}
+          {{ form.password1 }}
+          
+          {{ form.password2.label_tag }}
+          {{ form.password2 }}
+         
+        
+
+          <button id="btn" type="submit" class="btn register-btn" style="margin-top: 40px;">Register</button>
+        </form>
+        {% for message in error_message %}
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>Error!</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+{% endfor %}
+
+    <div>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+      </div>
+    </div>
+  </div>
+  <!-- Include reCAPTCHA API script -->
+
+
+{% endblock %}
+```

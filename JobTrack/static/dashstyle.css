@@ -1,0 +1,145 @@
+body {
+    background-color: #1E1E1E;
+    color: #EBEFFF;
+    padding-top: 50px;
+  }
+
+  .navbar {
+    background-color: #1E1E1E;
+  }
+
+  .navbar-brand {
+    color: #EBEFFF;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  .navbar-nav .nav-link {
+    color: #9199FB;
+    margin-right: 20px;
+    transition: color 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #EBEFFF;
+  }
+
+  .dashboard-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .dropdown {
+    margin-right: 20px;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1E1E1E;
+    padding-top: 20px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #EBEFFF;
+    display: block;
+    transition: color 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #9199FB;
+  }
+
+  .content {
+    margin-left: 100px;
+    padding: 20px;
+  }
+
+  /* Add Job Page Styles */
+  .add-job-form {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .add-job-btn {
+    background-color: #9199FB;
+    color: #1E1E1E;
+  }
+
+  .add-job-btn:hover {
+    background-color: #EBEFFF;
+    color: #1E1E1E;
+  }
+
+  /* All Jobs Page Styles */
+  .search-options {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Stats Page Styles */
+  .stats-card {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+/* Profile Page Styles */
+.profile-container {
+  background-color: #1E1E1E;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  max-width: 800px; /* Adjust the max-width as needed */
+}
+
+.profile-title {
+  color: #9199FB;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  margin-top: 20px;
+}
+
+.profile-label {
+  color: #9199FB;
+}
+
+.profile-input {
+  background-color: #2A2A2A;
+  color: #EBEFFF;
+  border: 1px solid #9199FB;
+}
+
+.update-profile-btn {
+  background-color: #9199FB;
+  color: #1E1E1E;
+  margin-top: 15px;
+}
+
+.update-profile-btn:hover {
+  background-color: #EBEFFF;
+  color: #1E1E1E;
+}
+
+
+

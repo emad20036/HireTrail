@@ -1,0 +1,162 @@
+body {
+  background-color: #1E1E1E;
+  color: #EBEFFF;
+
+}
+
+.navbar {
+  background-color: #1E1E1E;
+}
+
+.navbar-brand {
+  color: #EBEFFF;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-nav .nav-link {
+  color: #9199FB;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #EBEFFF;
+}
+
+.main-content {
+  text-align: center;
+  margin-top: 7%;
+}
+
+.app-title {
+  font-size: 2em;
+  color: #9199FB;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.app-description {
+  font-size: 1.2em;
+  margin-bottom:40px;
+  text-align: left;
+}
+
+.logo-container {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary,
+.btn-secondary {
+  background-color: #9199FB;
+  border: none;
+  width: 40%;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #EBEFFF;
+  color: #1E1E1E;
+}
+.button_wrapper {
+  display: flex;
+  align-items:flex-start;
+  justify-content: left;
+  gap: 20px;
+}
+
+.content-details {
+  display: flex;
+
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.login-form {
+  background-color: #1E1E1E;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #EBEFFF;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  background-color: #1E1E1E;
+  color: #EBEFFF;
+}
+
+.login-btn {
+  background-color: #9199FB;
+  color: #1E1E1E;
+}
+
+.login-btn:hover {
+  background-color: #EBEFFF;
+  color: #1E1E1E;
+}
+
+
+.register-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.register-form {
+  background-color: #1E1E1E;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #EBEFFF;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  background-color: #1E1E1E;
+  color: #EBEFFF;
+}
+
+.register-btn {
+  background-color: #9199FB;
+  color: #1E1E1E;
+  
+}
+
+.register-btn:hover {
+  background-color: #EBEFFF;
+  color: #1E1E1E;
+}
+
+#btn{
+  margin-top: 40px;
+}

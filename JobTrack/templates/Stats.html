@@ -1,0 +1,88 @@
+{% extends "dashboard.html" %}
+
+{% load static%}
+{% block content %}
+<style>
+
+  @media screen and (max-width: 768px) {
+    .content{
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 15px;
+      margin-left: 50px;
+    }
+</style>
+
+     <!-- Stats Page Content -->
+     <div class="content">
+
+     <div id="stats" class="stats-card">
+        <h2 style="color: #9199FB;">Stats</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card text-white bg-info">
+              <div class="card-body">
+                <h5 class="card-title">Pending Jobs</h5>
+                <p class="card-text">{{p_job}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-white bg-success">
+              <div class="card-body">
+                <h5 class="card-title">Interviews</h5>
+                <p class="card-text">{{i_job}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-white bg-danger">
+              <div class="card-body">
+                <h5 class="card-title">Declined Jobs</h5>
+                <p class="card-text">{{d_job}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 50%; margin:auto;">
+        <canvas id="myChart" width="10px" height="300"></canvas>
+    </div>
+  </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pending Jobs', 'Interview Jobs','Declined Jobs'],
+                    datasets: [{
+                        label: 'Job Status',
+                        data: [{{ p_job }}, {{ i_job }}, {{ d_job }}],
+                        backgroundColor: [
+                            '#17a2b8',
+                            '#28a745',
+                            '#dc3545',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    maintainAspectRatio: false, // Set to false to control the size
+                    responsive: true
+                }
+            });
+        });
+    </script>
+{% endblock %}
